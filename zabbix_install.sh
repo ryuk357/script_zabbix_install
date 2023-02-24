@@ -32,10 +32,10 @@ echo -e "\033[032m Install mysql\033[00m"
 apt install -y mysql-server
 
 echo -e "\033[032m Database creation + user zabbix \033[00m"
-mysql "create database zabbix character set utf8mb4 collate utf8mb4_bin;"
-mysql "create user zabbix@localhost identified by 'password';"
-mysql "grant all privileges on zabbix.* to zabbix@localhost;"
-mysql "set global log_bin_trust_function_creators = 1;"
+mysql -e "create database zabbix character set utf8mb4 collate utf8mb4_bin;"
+mysql -e "create user zabbix@localhost identified by 'password';"
+mysql -e "grant all privileges on zabbix.* to zabbix@localhost;"
+mysql -e "set global log_bin_trust_function_creators = 1;"
 
 zcat /usr/share/zabbix-sql-scripts/mysql/server.sql.gz | mysql --default-character-set=utf8mb4 -uzabbix -p zabbix
 
