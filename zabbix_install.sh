@@ -32,6 +32,7 @@ echo -e "\033[032m Install mysql\033[00m"
 apt install -y mysql-server
 
 echo -e "\033[032m Database creation + user zabbix \033[00m"
+echo -e "\033[032m Root password\033[00m"
 mysql -e "create database zabbix character set utf8mb4 collate utf8mb4_bin;"
 mysql -e "create user zabbix@localhost identified by 'password';"
 mysql -e "grant all privileges on zabbix.* to zabbix@localhost;"
@@ -41,7 +42,7 @@ zcat /usr/share/zabbix-sql-scripts/mysql/server.sql.gz | mysql --default-charact
 
 
 echo -e "\033[032m zabbix configuration modification\033[00m"
-sed -i 's/# DBPassword=/DBPassword=zabbix/g' /etc/zabbix/zabbix_server.conf
+sed -i 's/# DBPassword=/DBPassword=password/g' /etc/zabbix/zabbix_server.conf
 systemctl restart zabbix-server zabbix-agent apache2
 
 
