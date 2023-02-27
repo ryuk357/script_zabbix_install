@@ -26,7 +26,7 @@ dpkg -i zabbix-release_6.0-4+ubuntu20.04_all.deb
 apt update
 
 echo -e "\033[032m Install zabbix server, frontend, agent\033[00m"
-apt install -y zabbix-server-mysql zabbix-frontend-php zabbix-apache-conf zabbix-sql-scripts zabbix-agent
+apt install -y zabbix-server-mysql zabbix-frontend-php zabbix-apache-conf zabbix-sql-scripts zabbix-agent apache2
 
 echo -e "\033[032m Install mysql\033[00m"
 apt install -y mysql-server
