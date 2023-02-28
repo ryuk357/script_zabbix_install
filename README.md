@@ -1,4 +1,3 @@
 # script_zabbix_install 6.0 - ubuntu 20.04 - apache -MySQL
 
-En cours de création
-Fonctionnel
+Fonctionnel uniquement pour distribution ubuntu 20.04
